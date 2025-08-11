@@ -2,21 +2,8 @@ let computerChoice;
 let playerChoice;
 let computerScore = 0;
 let playerScore = 0;
-// get computer choice
-getPlayerChoice();
-getComputerChoice();
-console.log(playerChoice);
-console.log(computerChoice);
-playRound(playerChoice, computerChoice);
-// get user choice
 
-// determine winner
-
-// add to score
-
-// compare score to winning round number
-
-// reset?
+playGame();
 
 //functions
 function getComputerChoice() {
@@ -49,20 +36,46 @@ function playRound(playerChoice, computerChoice) {
     }
     else if (playerChoice === "paper" && computerChoice === "rock") {
         console.log("Paper beats Rock, you win!");
+        playerScore++;
+        return playerScore;
     }
     else if (playerChoice === "paper" && computerChoice === "scissors") {
         console.log("Scissors beats Paper, you lose!");
+        computerScore++;
+        return computerScore;
     }
     else if (playerChoice === "scissors" && computerChoice === "paper") {
         console.log("Scissors beats Paper, you win!");
+        playerScore++;
+        return playerScore;
     }
     else if (playerChoice === "scissors" && computerChoice === "rock") {
         console.log("Rock beats Scissors, you lose!");
+        computerScore++;
+        return computerScore;
     }
     else if (playerChoice === "rock" && computerChoice === "scissors") {
         console.log("Rock beats Scissors, you win!");
+        playerScore++;
+        return playerScore;
     }
     else if (playerChoice === "rock" && computerChoice === "paper") {
         console.log("Paper beats Rock, you lose!");
+        computerScore++;
+        return computerScore;
+    }
+}
+
+function playGame() {
+    while (computerScore < 5 && playerScore < 5) {
+        getPlayerChoice();
+        getComputerChoice();
+        playRound(playerChoice, computerChoice);
+    }
+    if (playerScore === 5) {
+        console.log("You win the game!");
+    }
+    else if (computerScore === 5) {
+        console.log("You lose the game!");
     }
 }
