@@ -1,8 +1,10 @@
 let computerChoice;
 let playerChoice;
 // get computer choice
-getComputerChoice()
-console.log(computerChoice)
+getPlayerChoice();
+getComputerChoice();
+console.log(playerChoice);
+console.log(computerChoice);
 // get user choice
 
 // determine winner
@@ -20,11 +22,19 @@ function getComputerChoice() {
     computerChoice = Math.floor(Math.random() * (max - min) + min);
     if (computerChoice === 1) {
         computerChoice = "Rock";
+        return computerChoice;
     }
     else if (computerChoice === 2) {
-        computerChoice = "Paper"
+        computerChoice = "Paper";
+        return computerChoice;
     }
     else if (computerChoice === 3) {
-        computerChoice = "Scissors"
+        computerChoice = "Scissors";
+        return computerChoice;
     }
+}
+
+function getPlayerChoice() {
+    playerChoice = prompt("Rock, Paper or Scissors?");
+    return playerChoice;
 }
